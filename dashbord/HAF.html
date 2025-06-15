@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAND BLOG - Header and Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <a href="#">STAND BLOG<span>.</span></a>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item active">
+                    <a href="HAF.html">
+                    <i class="fas fa-heading"></i>
+                    <span>Header and Footer</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="slid.html">
+                        <i class="fa-solid fa-sliders"></i>
+                    <span>slid section</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="newest.html">
+                        <i class="fas fa-newspaper"></i>
+                    <span>Newest Belog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html">
+                        <i class="fas fa-user"></i>
+                        <span>About Page</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="blog.html">
+                        <i class="fas fa-newspaper"></i>
+                    <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="post.html">
+                        <i class="fas fa-plus"></i>
+                    <span>Post</span>
+                    </a>
+                </div>
+                <div class="nav-item ">
+                    <a href="contact.html">
+                        <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>Header and Footer</h2>
+                <div class="user-info">
+                    
+                    <span>Admin</span>
+                </div>
+            </div>
+            
+            <!-- Social Media Form -->
+            <div class="form-container">
+                <div class="section-header">
+                    <h2>Header</h2>
+                </div>
+                
+                <div class="form-title">Update your title</div>
+                
+                <form id="socialMediaForm" method="post" action="proccess.php">
+                    <div class="form-group">
+                        <label for="title">title URL</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa-solid fa-heading"></i>
+                            </div>
+                            <input type="text" id="title" class="form-control" placeholder="Enter title" required>
+                        </div>
+                    </div>
+                
+                
+            </div>
+            <div class="form-container">
+                <div class="section-header">
+                    <h2>Footer</h2>
+                </div>
+                
+                <div class="form-title">Update your social media links </div>
+                
+                
+                    <div class="form-group">
+                        <label for="facebook">Facebook URL</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <input type="url" id="facebook" class="form-control" placeholder="Enter Facebook URL">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="instagram">Instagram URL</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <input type="url" id="instagram" class="form-control" placeholder="Enter Instagram URL">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="twitter">X (Twitter) URL</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa-solid fa-x"></i>
+                            </div>
+                            <input type="url" id="twitter" class="form-control" placeholder="Enter X URL">
+                        </div>
+                    </div>
+                    
+                    <div class="actions">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+                $(document).ready(function (e)  {
+            let userId = 1;
+
+            $.ajax({
+                type: "POST",
+                url: "proccess.php",
+                data: {
+                    action: "getData"  
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        console.log("falied", response.error);
+                        return;
+                    }
+                    console.log("", response);
+                    $("#title").val(response.title);
+                    $("#facebook").val(response.facebook);
+                    $("#twitter").val(response.twitter);
+                    $("#instagram").val(response.instagram);
+
+                },
+                error: function(xhr, status, error) {
+                    console.error("Falied", error);
+                }
+
+            });
+        });
+        $(document).on("click",".btn-save", function(e){
+            e.preventDefault();
+            
+            let formData = {
+                id:1,
+                title: $("#title").val(),
+                facebook: $("#facebook").val(),
+                twitter: $("#twitter").val(),
+                instagram: $("#instagram").val(),
+                action: "update"
+            };
+            $.ajax({
+                type: "POST",
+                url: "proccess.php",
+                data: formData,
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+
+                        location.reload();
+                    } else {
+                        alert("error " + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(" falied", error);
+                }
+                
+            });
+        });
+    </script>
+</body>
+</html>

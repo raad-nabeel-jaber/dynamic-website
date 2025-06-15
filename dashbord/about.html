@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAND BLOG - About Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .item-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .item-box {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .form-control {
+            z-index: 10;
+            position: relative;
+        }
+        .item-box:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(244, 136, 64, 0.1);
+            cursor: pointer;
+        }
+        .item-box.active {
+            border-color: var(--primary-color);
+            background-color: rgba(244, 136, 64, 0.1);
+        }
+        .item-box input[type="radio"] {
+            margin-right: 10px;
+        }
+        .item-box label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <a href="#">STAND BLOG<span>.</span></a>
+            </div>
+            <div class="nav-menu">
+
+                <div class="nav-item">
+                    <a href="HAF.html">
+                        <i class="fas fa-heading"></i>
+                        <span>Header and Footer</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="slid.html">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>Slides</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="newest.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Newest Belog</span>
+                    </a>
+                </div>
+                <div class="nav-item active">
+                    <a href="about.html">
+                        <i class="fas fa-user"></i>
+                        <span>About Page</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="blog.html">
+                        <i class="fas fa-newspaper"></i>
+                    <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="post.html">
+                        <i class="fas fa-plus"></i>
+                    <span>Post</span>
+                    </a>
+                </div>
+                <div class="nav-item ">
+                    <a href="contact.html">
+                        <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>About Page</h2>
+                <div class="user-info">
+                    <span>Admin</span>
+                </div>
+            </div>
+            
+            <!-- About Form Section -->
+            <div class="form-container">
+                <div class="section-header">
+                    <h2>About Section</h2>
+                </div>
+                
+                <div class="form-title">Update your about section content</div>
+                
+                <form id="aboutForm" method="post" action="proccess.php">
+                    <!-- Image Upload Section -->
+                    <div class="form-group">
+                        <label for="aboutImage">Profile Image</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <input type="file" id="aboutImage" class="form-control">
+                            <span id="aboutImageName" style="margin-right:10px;color:#666;"></span>
+                            <img src="" alt="" id="aboutImagePreview" style="max-width: 70px; max-height: 70px; display: none; border-radius: 8px; margin-left: 10px;">
+                        </div>
+                    </div>
+
+                    <!-- Radio Buttons for Item Selection -->
+                    <div class="form-group">
+                        <label>Choose Item to Edit</label>
+                        <div class="item-selector">
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item1" value="1" checked>
+                                <label class="form-check-label" for="item1">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 1
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item2" value="2">
+                                <label class="form-check-label" for="item2">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 2
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item3" value="3">
+                                <label class="form-check-label" for="item3">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 3
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item4" value="4">
+                                <label class="form-check-label" for="item4">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 4
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item5" value="5">
+                                <label class="form-check-label" for="item5">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 5
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item6" value="6">
+                                <label class="form-check-label" for="item6">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 6
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item7" value="7">
+                                <label class="form-check-label" for="item7">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 7
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item8" value="8">
+                                <label class="form-check-label" for="item8">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 8
+                                </label>
+                            </div>
+                            <div class="item-box">
+                                <input class="form-check-input" type="radio" name="itemRadio" id="item9" value="9">
+                                <label class="form-check-label" for="item9">
+                                    <i class="fas fa-file-alt"></i>
+                                    Item 9
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Item Form -->
+                    <div class="form-group active-item-form">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-heading"></i>
+                            </div>
+                            <input type="text" id="activeTitle" class="form-control" placeholder="Enter title" required>
+                        </div>
+
+                        <div class="input-group" style="margin-top: 15px;">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+                            <textarea id="activeDescription" class="form-control" rows="4" placeholder="Enter description" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-save"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function (e)  {
+            let userId = 1;
+
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=about",
+                data: {
+                    action: "getData"  
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        console.log("falied", response.error);
+                        return;
+                    }
+                    console.log("", response);
+                    // لا تضع قيمة داخل input file
+                    $("#aboutImage").val("");
+                    // عرض اسم الصورة بجانب الحقل
+                    if(response.image && response.image !== ""){
+                        $("#aboutImageName").text(response.image);
+                        // إذا أردت عرض الصورة نفسها في المعاينة:
+                        $("#aboutImagePreview").attr("src", "../assets/images/" + response.image).show();
+                    } else {
+                        $("#aboutImageName").text("لا توجد صورة");
+                        $("#aboutImagePreview").hide();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Falied", error);
+                }
+
+            });
+        });
+        $(document).on("click",".btn-save", function(e){
+            e.preventDefault();
+            let imageInput = $('#aboutImage').val();
+let currentImage = $('#aboutImageName').text();
+let formData = {
+    image: imageInput ? imageInput.split("\\").pop() : currentImage,
+    action: "update"
+};
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=about",
+                data: formData,
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+
+                        location.reload();
+                    } else {
+                        alert("error " + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(" falied", error);
+                }
+                
+            });
+        });
+        $("input[name='itemRadio']").on('change', function() {
+    let userId = $(this).val();
+    $.ajax({
+        type: "POST",
+        url: "proccess.php?table=about2",
+        data: {
+            action: "getData",
+            id: userId
+        },
+        dataType: "json",
+        success: function(response) {
+            if (response.error) {
+                console.log("falied", response.error);
+                return;
+            }
+            $("#activeTitle").val(response.title);
+            $("#activeDescription").val(response.content);
+        },
+        error: function(xhr, status, error) {
+            console.error("Falied", error);
+        }
+    });
+});
+$(document).ready(function() {
+    // احصل على قيمة الراديو المختار عند التحميل
+    let userId = $("input[name='itemRadio']:checked").val();
+    // نفذ نفس طلب الجلب كما عند تغيير الراديو
+    $.ajax({
+        type: "POST",
+        url: "proccess.php?table=about2",
+        data: {
+            action: "getData",
+            id: userId
+        },
+        dataType: "json",
+        success: function(response) {
+            if (response.error) {
+                console.log("falied", response.error);
+                return;
+            }
+            $("#activeTitle").val(response.title);
+            $("#activeDescription").val(response.content);
+        },
+        error: function(xhr, status, error) {
+            console.error("Falied", error);
+        }
+    });
+});
+$(document).on("click",".btn-save", function(e){
+            e.preventDefault();
+            
+            let formData = {
+                id:$("input[name='itemRadio']:checked").val(),
+                title: $("#activeTitle").val(),
+                content: $("#activeDescription").val(),
+                action: "update"
+            };
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=about2",
+                data: formData,
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+
+                        location.reload();
+                    } else {
+                        alert("error " + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(" falied", error);
+                }
+                
+            });
+        });
+    </script>
+</body>
+</html>

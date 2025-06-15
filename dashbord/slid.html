@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAND BLOG - Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-post-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .blog-post-header {
+            background: linear-gradient(135deg, var(--primary-color), #e67e34);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .blog-post-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .blog-post-content {
+            padding: 25px;
+        }
+
+        .image-upload-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .image-upload-section:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(244, 136, 64, 0.05);
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            background-color: #e67e34;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        .textarea-field {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            color: var(--gray-color);
+            font-size: 14px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .preview-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .preview-title {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .blog-preview {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .blog-preview img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-preview-content {
+            padding: 20px;
+        }
+
+        .blog-preview h4 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        .blog-preview p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <a href="#">STAND BLOG<span>.</span></a>
+            </div>
+            <div class="nav-menu">
+
+                <div class="nav-item">
+                    <a href="HAF.html">
+                    <i class="fas fa-heading"></i>
+                    <span>Header and Footer</span>
+                    </a>
+                </div>
+                <div class="nav-item active">
+                    <a href="slid.html">
+                        <i class="fa-solid fa-sliders"></i>
+                    <span>Home Page</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="newest.html">
+                        <i class="fas fa-newspaper"></i>
+                    <span>Newest Belog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html">
+                        <i class="fas fa-user"></i>
+                        <span>About Page</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="blog.html">
+                        <i class="fas fa-newspaper"></i>
+                    <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="post.html">
+                        <i class="fas fa-plus"></i>
+                    <span>Post</span>
+                    </a>
+                </div>
+                <div class="nav-item ">
+                    <a href="contact.html">
+                        <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>Post Management</h2>
+                <div class="user-info">
+                    
+                    <span>Admin</span>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">
+                <i class="fas fa-check-circle"></i> Blog post updated successfully!
+            </div>
+
+            <!-- Blog Post Editor -->
+            <div class="blog-post-container">
+                <div class="blog-post-header">
+                    <h3><i class="fas fa-edit"></i> Edit Blog Post</h3>
+                    <div class="blog-meta">
+                        <span id="lastUpdated">Last updated: Never</span>
+                    </div>
+                </div>
+                <form id="blogForm" method="post" action="proccess.php?table=slid">
+                    <input type="number" id="id" hidden>
+                <div class="blog-post-content">
+                    <!-- Image Upload Section -->
+                    <div class="image-upload-section">
+                        <div id="imagePreviewContainer">
+                            <img id="imagePreview" class="image-preview hidden" src="" alt="Blog Image">
+                            <div id="uploadPlaceholder">
+                                <i class="fas fa-cloud-upload-alt" style="font-size: 48px; color: #ddd; margin-bottom: 15px;"></i>
+                                <p style="color: #666; margin-bottom: 15px;">Click to upload blog image</p>
+                            </div>
+                        </div>
+                        <input type="file" id="imageUpload" accept="../assets/images/" style="display: none;">
+                        <button type="button" class="upload-btn" onclick="document.getElementById('imageUpload').click()">
+                            <i class="fas fa-upload"></i> Choose Image
+                        </button>
+                    </div>
+
+                    <!-- Blog Form -->
+                    
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="blogTitle">Blog Title</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <i class="fas fa-heading"></i>
+                                    </div>
+                                    <input value="" type="text" id="blogTitle" class="form-control" placeholder="Enter blog title" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bloggerName">Blogger Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <input type="text" id="bloggerName" class="form-control" placeholder="Enter blogger name" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label for="subTitle">Sub Title</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <i class="fas fa-align-left"></i>
+                                </div>
+                                <textarea id="subTitle" class="form-control textarea-field" placeholder="Enter sub title or description" rows="3" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="publishDate">Publish Date</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <input type="date" id="publishDate" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="commentsCount">Comments Count</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <input type="number" id="commentsCount" class="form-control" placeholder="0" min="0" value="0" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button type="button" class="btn-sub hidden">
+                                <i class="fas fa-eye"></i> Submit
+                            </button>
+                            <button type="submit" class="btn-save" style="margin-left: 10px;">
+                                <i class="fas fa-save"></i> Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div id="previewSection" class="preview-section "></div>
+        </div>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imagePreview = document.getElementById('imagePreview');
+            const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+            
+            imagePreview.src = e.target.result;
+            imagePreview.classList.remove('hidden');
+            uploadPlaceholder.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+                $(document).on("click", ".btn-save", function(e) {
+            e.preventDefault();
+            let formData = new FormData();
+            formData.append('imageUpload', $('#imageUpload').val().split("\\").pop());
+            formData.append('blogTitle', $("#blogTitle").val());
+            formData.append('bloggerName', $("#bloggerName").val());
+            formData.append('subTitle', $("#subTitle").val());
+            formData.append('publishDate', $("#publishDate").val());
+            formData.append('commentsCount', $("#commentsCount").val());
+            formData.append('add', true);
+
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=slid" ,
+                data: formData,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert("Error:" + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Failed", error);
+                }
+            });
+        });
+        $(document).ready(function() {
+        $.getJSON("proccess.php?table=slid" , function(data) {
+            $(".preview-section ").html("");
+            $.each(data, function(index, atr) {
+                $(".preview-section").append(`
+            
+                <h3 class="preview-title"><i class="fas fa-eye"></i> Blog Preview</h3>
+                <div class="blog-preview">
+                    <img id="previewImage" src="../assets/images/${atr.imageUpload}" alt="Blog Preview">
+                    <div class="blog-preview-content">
+                        <h4 id="previewTitle">${atr.blogTitle}</h4>
+                        <p id="previewSubTitle">${atr.subTitle}</p>
+                        <div class="blog-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-user"></i>
+                                <span id="previewBlogger">${atr.bloggerName}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span id="previewDate">${atr.publishDate}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-comments"></i>
+                                <span id="previewComments">${atr.commentsCount}</span>
+                            </div>
+                            <button type="submit" class="edit-btn" data-id="${atr.ID}" style="margin-left: 10px;">
+                                            
+                                <i class="fa-solid fa-pen"></i> Edit
+                            </button>
+                            <button type="submit" class="delete-btn" data-id="${atr.ID}" style="margin-left: 10px;">
+                                            
+                                <i class="fa-solid fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                `);
+            });
+        });
+        });
+        $(document).on("click", ".edit-btn", function(e) {
+            e.preventDefault();
+            $(".btn-sub").removeClass("hidden");
+            $(".btn-save").addClass("hidden");
+            let userId = $(this).data("id");
+
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=slid" ,
+                data: {
+                    edit_id: userId
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        console.log("failed", response.error);
+                        return;
+                    }
+                    console.log("", response);
+                    $("#id").val(response.ID);
+                    $("#previewImage").val( response.imageUpload);
+                    $("#imageUpload").attr("accept", "../assets/images/" + response.imageUpload);
+                    $("#blogTitle").val(response.blogTitle);
+                    $("#bloggerName").val(response.bloggerName);
+                    $("#subTitle").val(response.subTitle);
+                    $("#publishDate").val(response.publishDate);
+                    $("#commentsCount").val(response.commentsCount);
+
+                },
+                error: function(xhr, status, error) {
+                    console.error("Failed", error);
+                }
+            });
+        });
+        $(".btn-sub").on("click", function(e) {
+            e.preventDefault();
+            $(".btn-save").removeClass("hidden");
+            $(".btn-sub").addClass("hidden");
+
+            let formData = new FormData();
+            formData.append('id', $("#id").val());
+            formData.append('blogTitle', $("#blogTitle").val());
+            formData.append('bloggerName', $("#bloggerName").val());
+            formData.append('subTitle', $("#subTitle").val());
+            formData.append('publishDate', $("#publishDate").val());
+            formData.append('commentsCount', $("#commentsCount").val());
+            if($('#imageUpload').val()){
+            formData.append('imageUpload', $('#imageUpload').val().split("\\").pop());
+        }
+            formData.append('action', "update");
+
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=slid",
+                data: formData,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert("error " + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("failed", error);
+                }
+            });
+        });
+        $(document).on("click", ".delete-btn", function() {
+            let userId = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "proccess.php?table=slid" ,
+                data: {
+                    delete_id: userId
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else
+                        alert("error", response.error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
